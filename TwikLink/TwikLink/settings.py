@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -138,30 +138,30 @@ USE_TZ = True
 
 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS  = [os.path.join(BASE_DIR,'TwikLink/static'),]
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
-
-
-
 # STATIC_URL = '/static/'
+# STATICFILES_DIRS  = [os.path.join(BASE_DIR,'TwikLink/static'),]
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # MEDIA_URL = '/media/'
 
 
-# if DEBUG:
 
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'TwikLink/static')]
+STATIC_URL = '/static/'
 
-# else:
-
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
 
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if DEBUG:
+
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'TwikLink/static')]
+
+else:
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
