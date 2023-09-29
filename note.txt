@@ -1,0 +1,1 @@
+#################### Stop in python manage.py collectstatic

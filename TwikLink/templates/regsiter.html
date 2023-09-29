@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regsiter</title>
+    <link rel="icon" href="{% static 'asstes/images/Frame 2.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="background-image" style="background-image: url('{% static '/asstes/images/lsp_blog-hero-img_060319-064337.png' %}');"></div>
+    <section>
+        <div class="contanier">
+            <div class="box-getstarted" style="background:url({% static '/asstes/images/linktree-nedir-6.webp' %});">
+                <h2>If you want a link that collects all your links</h2>
+                <p>If you're looking for a way to improve your online presence, Linktree is a great option. It's free to use, easy to set up and customize, and it allows you to add links to all of your social media profiles, websites, and other online destinations.</p>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <h2 class="titleFrom">Regsiter</h2>
+                <div class="box-input">
+                    <!-- <label for="Email" class="input-email">Email</label> -->
+                    <div class="box-input-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {{form.email}}
+                    </div>
+                </div>
+                <div class="box-input">
+                    <!-- <label for="Email" class="input-email">Email</label> -->
+                    <div class="box-input-input">
+                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><path d="M48,0a48,48,0,0,0,0,96,6,6,0,0,0,0-12A36,36,0,1,1,84,48V66a6,6,0,0,1-12,0V48A24,24,0,1,0,48,72a23.7365,23.7365,0,0,0,12.2549-3.4783A17.9586,17.9586,0,0,0,96,66V48A48.0474,48.0474,0,0,0,48,0Zm0,60A12,12,0,1,1,60,48,12.0081,12.0081,0,0,1,48,60Z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {% comment %} <input placeholder="Username" name="Username"  type="text"> {% endcomment %}
+                        {{form.username}}
+                    </div>
+                </div>
+                <div class="box-input">
+                    <!-- <label for="password" class="input-email">Password</label> -->
+                    <div class="box-input-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {{form.password1}}
+                    </div>
+                    
+                </div>
+                <div class="box-input">
+                    <!-- <label for="password" class="input-email">Password</label> -->
+                    <div class="box-input-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {{form.password2}}
+                    </div>
+                    
+                </div>
+                <div>
+
+                </div>
+                <div class="box-btn">
+                    <a href="{% url 'login' %}" class="btn-submit btn-a">Login</a>
+                    <button type="submit" class="btn-submit">Register</button>
+                </div>
+                <div style="width:100%;display:flex;align-items:center;justify-content:center;color:red; list">
+                    {% if messages %}
+                    <ul class="messages" style="list-style-type:none">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </form>
+                
+
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

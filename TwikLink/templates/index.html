@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static '/asstes/images/Frame 2.png' %}">
+    <title>192.255 | TwikLink</title>
+</head>
+<body>
+    <div class="background-share">
+    </div>
+    <div class="Box-share">
+        <div class="box-one" >
+            <h4 class="titleTwik">Share this Twik</h4>
+            <button class="btn-close"><img  loading="lazy" src="{% static '/asstes/svg/8666595_x_icon.svg' %}" alt="" srcset=""></button>
+        </div>
+        <div class="box-two">
+            <ul class="listShare">
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/4202110_facebook_logo_social_social media_icon.svg' %}" alt=""> Share on Facebook</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/1920528_linkedin_logo_network_social_icon.svg' %}" alt=""> Share on Linkden</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/317723_social media_tweet_twitter_social_icon.svg' %}" alt=""> Share on Twitter</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/4102606_applications_media_social_whatsapp_icon.svg' %}" alt=""> Share via WhatsApp</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/4745733_chat_facebook_media_message_messenger_icon.svg' %}" alt=""> Share via Messenger</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/4745721_bubble_connection_email_envelope_letter_icon.svg' %}" alt=""> Share via Email</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+                <li class="item-social"><div class="box-two-text"><img class="icon-share" loading="lazy" src="{% static '/asstes/svg/2519685_arrow_box_document_outline_share_icon.svg' %}" alt=""> More options</div><img src="{% static '/asstes/svg/3994400_arrow_forward_navigation_next_right_icon.svg' %}" class="icon-arrow" loading="lazy" alt=""></li>
+
+                
+            </ul>
+        </div>
+        <div class="box-three">
+            <div class="Box-Copy" >
+                <span>T</span>
+                <p>LinkTwik.com/@{{profile.username}}</p>
+            </div>
+            <button class="btn-copy" data-clipboard-text="https://LinkTwik.com/@{{profile.username}}">Copy</button>
+        </div>
+
+    </div>
+    {% if not profile.gradientActive %}
+    <div class="background-image"  style="background: linear-gradient({{profile.gradientoption}},{{profile.gradientOne}},{{profile.gradientTwo}});filter: blur({{profile.BackgroundBlur}}px);"></div>
+    {% else %}
+    <div class="background-image"  style="background-image: url({{profile.BackgroundProfile.url}});filter: blur({{profile.BackgroundBlur}}px);"></div>
+
+    {% endif %}
+    <section id="section">
+        <div class="likeNav">
+            <img src="{{profile.photoProfile.url}}"  loading="lazy"  alt="">
+            <h3 style="color:#{{profile.colorUser}}">@{{profile.username}}  {% if profile.verifyUser %}<img src="{% static '/asstes/svg/verify.svg' %}">{% endif %}</h3>
+            <button id="buttonDots"><img src="{% static '/asstes/svg/352548_three dots_icon.svg' %}" alt=""></button>
+        </div>
+        <div class="contanier">
+            <div class="boxInfo">
+                <img src="{{profile.photoProfile.url}}"  loading="lazy"  alt="" class="imgPrevew">
+                <h3 class="Username" style="color:#{{profile.colorUser}}">@{{profile.username}} {% if profile.verifyUser %}<img src="{% static '/asstes/svg/verify.svg' %}">{% endif %}</h3>
+                <p class="descripon" style="color:{{profile.colorDescription}}">{{profile.Description}}</p>
+            </div>
+            <div class="box-listSocial">
+                <ul class="listSocial">
+                    {% if profile.instagramURL != None  %}
+                    <li><a href="https://www.instagram.com/{{profile.instagramURL}}" target="_blank"><img src="{% static '/asstes/svg/6636603_instagram_social media_social network_icon.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.FacebookURL != None  %}
+                    <li><a href="{{profile.FacebookURL}}" target="_blank"><img src="{% static '/asstes/svg/4202110_facebook_logo_social_social media_icon.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.tiktokURL != None %}
+                    <li><a href="https://tiktok.com/@{{profile.tiktokURL}}" target="_blank"><img src="{% static '/asstes/svg/icons8-tiktok.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.twitterURL != None  %}
+                    <li><a href="https://twitter.com/{{profile.twitterURL}}" target="_blank"><img src="{% static '/asstes/svg/317723_social media_tweet_twitter_social_icon.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.youtubeURL != None  %}
+                    <li><a href="{{profile.youtubeURL}}" target="_blank"><img src="{% static '/asstes/svg/1783350_internet_social media_youtube_icon.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.linkedinURL != None  %}
+                    <li><a href="{{profile.linkedinURL}}" target="_blank"><img src="{% static '/asstes/svg/icons8-linkedin.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                    {% if profile.GithubURL != None  %}
+                    <li><a href="https://github.com/{{profile.GithubURL}}" target="_blank"><img src="{% static '/asstes/svg/8546919_github_square_icon.svg' %}" alt="" srcset=""></a></li>
+
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="box-listItem">
+                <ul class="listItem">
+                    {% for item in items %}
+                    {% if item.backgoundActive %}
+                    <li style="backdrop-filter:blur({{item.BackgroundBlur}}px);background:{{item.backgroundbox}}">{% if item.image %}<img src="{{item.image.url}}"  loading="lazy"  class="iconsItem" alt="">{% else %}<img src=""  loading="lazy"  class="iconsItem" style="opacity:0;" >{% endif %}<a href="{{item.url}}" target="_blank">{{item.text}}</a><button id="btn-getlink"><img src="{% static '/asstes/svg/link3.svg' %}" alt="1"></button></li>
+                    {% else %}
+                    <li style="backdrop-filter:blur({{item.BackgroundBlur}}px);background: linear-gradient({{item.gradientoption}}, {{item.gradientOne}}, {{item.gradientTwo}});">{% if item.image %}<img src="{{item.image.url}}"  loading="lazy"  class="iconsItem" alt="">{% else %}<img src=""  loading="lazy"  class="iconsItem" style="opacity:0;" >{% endif %}<a target="_blank" href="{{item.url}}" >{{item.text}}</a><button id="btn-getlink"><img src="{% static '/asstes/svg/link3.svg' %}" alt="1"></button></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="box-web">
+            <a href="#"><span>T</span>wikLink</a>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

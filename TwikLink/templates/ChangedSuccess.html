@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changed Success</title>
+    <link rel="stylesheet" href="{% static '/css/forgotpassword.css' %}">
+</head>
+<body>
+    <section class="Section">
+        <div class="div-one">
+            <div class="box-Title">
+                <h2 class="SuccessH">Changed Success</h2>
+                <p class="SuccessP">Your password is now changed. <a href='{% url "login" %}' class="retrunLogin">Login?</a>
+                </p>
+            </div>
+            <h2 class="Logo G"><span>T</span>wikLink</h2>
+        </div>
+    </section>
+    <script>
+        setTimeout(function() {
+            window.location.href = "{% url 'home' %}";
+        }, 5000);
+    </script>
+    
+</body>
+</html>

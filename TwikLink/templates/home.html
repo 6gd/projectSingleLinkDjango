@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwikLink</title>
+    <link rel="icon" href="{% static 'asstes/images/Frame 2.png' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
+</head>
+<body>
+    <section class="Section">
+        <div class="div-one">
+            <h1 class="logo"><span>T</span>wikLink</h1>
+            {% if request.user.is_authenticated%}
+            <a href="{% url 'Account' %}" class="btn-regitser">{{request.user.username}}</a>
+            {% else %}
+            <a href="{% url 'signup' %}" class="btn-regitser">SignUp / SignIn</a>
+            {% endif %}
+            <svg class="mouse-cotainer" width="31" height="59" viewBox="0 0 41 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="39" height="57" rx="19.5" stroke="black" stroke-width="2"/>
+                <rect class="buttomScroll" x="16" y="11.5068" width="6" height="10.5479" rx="4" fill="black"/>
+            </svg>
+        </div>
+    </section>
+    <section class="Section">
+        <div class="div-two">
+            <div class="box-About">
+                <h2>Everything you are. In one, simple link in bio.</h2>
+                <p>Join 35M+ people using TwikLink for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube and other social media profiles.</p>
+            </div>
+            <div class="box-A-img">
+                <img src="{% static 'asstes/images/lsp_linktree-profile-queensland_070319-011015-transformed.jpeg' %}" alt="">
+            </div>
+            <h3 class="youare">TiwkLink.com/@youare</h3>
+        </div>
+    </section>
+    <section class="Section">
+        <div class="div-three">
+            <div class="box-overview">
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="splide two">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box-O-info">
+                <h2>Create and customize your TwikLink in minutes</h2>
+                <p>Connect your TikTok, Instagram, Twitter, website, store, videos, music, podcast, events and more. It all comes together in a link in bio landing page designed to convert.</p>
+                <a href="{% url 'signup' %}">get started for free</a>
+            </div>
+        </div>
+    </section>
+    <section class="Section Footer">
+        <div class="div-five">
+            <h3><span>T</span>wikLink</h3>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js" integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js" integrity="sha256-A+2opyqhvbBV8tbd9mIM8w9zvvMYHOawY03BQRtq7Kw=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="{% static 'asstes/images/Frame 2.png' %}">
+
+    <link rel="stylesheet" href="{% static '/css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="background-image" style="background-image: url({% static '/asstes/images/lsp_blog-hero-img_060319-064337.png' %});"></div>
+    <section>
+        <div class="contanier">
+            <div class="box-getstarted" style="background: url({% static '/asstes/images/linktree-nedir-6.webp' %})";
+            '>
+                <h2>Get Profile Like That</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum mollitia obcaecati, cumque quidem nulla perferendis laudantium aperiam quibusdam repellat deleniti, nesciunt repudiandae numquam reprehenderit eaque praesentium amet officia sunt ab.</p>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <h2 class="titleFrom">Login</h2>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        {% if forloop.last %}
+                            <li class="box-mesge {{ message.tags }}">{{ message }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="box-input">
+                    <div class="box-input-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {{form.login}}
+                    </div>
+                </div>
+                <div class="box-input">
+                    <div class="box-input-input">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" fill="rgba(0, 0, 0, .8)"/></svg>
+                        {{form.password}}
+                    </div>
+                    
+                </div>
+                <div class="box-remember">
+                    <label class="container">
+                        {{form.remember}}
+                        <div class="checkmark"></div>
+                    </label>
+                    <h4>Remember</h4>
+                </div>
+
+                <div class="box-btn">
+                    <a href="{% url 'signup' %}" class="btn-submit btn-a">Register</a>
+                    <button type="submit" class="btn-submit">Login</button>
+                </div>
+                <p class="forgotPAssword">If forgot your<a href='{% url "forgetPassword" %}'> password?</a></p>
+                
+                {% comment %} <div style="width:100%;display:flex;align-items:center;justify-content:center;color:red; list">
+                    {% if messages %}
+                    <ul class="messages" style="list-style-type:none">
+                        {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div> {% endcomment %}
+            </form>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

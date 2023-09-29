@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit Item</title>
+    <link rel="icon" href="{% static 'asstes/images/Frame 2.png' %}">
+
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+</head>
+<body>
+    <div class="background-image" style="background-image: url({% static '/asstes/images/lsp_blog-hero-img_060319-064337.png' %});"></div>
+    <header class="header">
+        <h3 class="TitlePage">Now You Can Edit Your Box</h3>
+
+        <section class="section">
+            <form class="form grow-3" method='post' enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="Iform">
+
+                {% csrf_token %}
+                <div class="box-upload" style="border:1px solid #000">
+                    <img class="cameraplus" src="{% static '/asstes/svg/arrowSync.svg' %}" alt="">
+                    {% if It.image %}
+                    <img class="PhotoItem" src="{{It.image.url}}" alt="">
+                    {% else %}
+                    <img class="PhotoItem" src="" style="opacity:0;" alt="">
+                    {% endif %}
+                    {% comment %} <img class="PhotoItem" src="{% static '/asstes/images/Profile.jpg' %}" alt=""> {% endcomment %}
+                    {{Iform.image}}
+                    {% comment %} <input type="file" name="Photo" id=""> {% endcomment %}
+                </div>
+                <label class="cyberpunk-checkbox-label">
+                    {{Iform.showPhoto}}
+                    {% comment %} <input class="cyberpunk-checkbox" type="checkbox" checked> {% endcomment %}
+                    
+                    Show Photo</label>
+                {% comment %} <input type="text"class="input-Item" value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nam magnam adipisci labore voluptate quod voluptatum cumque, ad quasi consequuntur voluptatem! Magni, neque. In aspernatur iusto iste. Dolor, at illum?" name="text" placeholder="add anything" > {% endcomment %}
+                {{Iform.text}}
+                {{Iform.url}}
+                {% comment %} <input type="text"class="input-Item" name="Url" value="https://google.com" placeholder="add Url"> {% endcomment %}
+                <button  class="btn-edit">Edit</button>
+            </form>
+            <form class="form grow-1" method='post'>
+                <input type="hidden" name="form_type" value="Sform">
+                {% csrf_token %}
+                <div class="choiseBackgroundBox">
+                    <label for="colorpicker">Background Box color:</label>
+                    {% comment %} {{Sform}} {% endcomment %}
+                    {% comment %} <input type="color" id="colorpicker" value="#ffffff"> {% endcomment %}
+                    {% comment %} <input type="text" id="id_gradientOne" class="colorfield_field jscolor form-control" name="{{ Sform.backgroundbox.html_name }}" value="{{ Sform.backgroundbox.value|default_if_none:'#5558da' }}" placeholder="#5558da" data-jscolor="{hash:true,width:225,height:150,format:'hex',required:false,paletteCols:4,paletteHeight:28}"> {% endcomment %}
+                    <input type="color" name="{{ Sform.backgroundbox.html_name }}" class="colorpicker" value={{Sform.backgroundbox.value}}>
+
+                </div>
+                <div class="choiseBlur">
+                    <label class="container">
+                        Blur:
+                        {{Sform.BackgroundBlurActive}}
+                        <div class="checkmark"></div>
+                    </label>
+                    {{Sform.BackgroundBlur}}
+                    
+                </div>
+                <label class="container">
+                    Background:
+                    {{Sform.backgoundActive}}
+                    <div class="checkmark"></div>
+                </label>
+                <div class="wrapper">
+                    <div class="gradient-box" style="background: linear-gradient({{Sform.gradientoption.value}}, {{Sform.gradientOne.value}}, {{Sform.gradientTwo.value}});"></div>
+                    <div class="row options">
+                        <div class="column direction">
+                            {% comment %} <p>{{Sform.gradientoption.value}}</p> {% endcomment %}
+                            <p>Direction</p>
+                            <div class="select-box">
+                                {{Sform.gradientoption }}
+                            </div>
+                        </div>
+                        <div class="column palette">
+                            <p>Colors</p>
+                            <div class="colors">
+
+                                <input type="color" name="{{ Sform.gradientOne.html_name }}"value="{{ Sform.gradientOne.value|default:'#000000' }}">
+                                <input type="color" name="{{ Sform.gradientTwo.html_name }}"value="{{ Sform.gradientTwo.value|default:'#000000' }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttons">
+                        <button class="refresh" type="button">Random</button>
+                    </div>
+                </div>
+                <button class="btn-edit">Edit</button>
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="Dform">
+                <button class="btn-edit red">Delete</button>
+            </form>
+        </section>
+    </header>
+    <script src="{% static 'js/edit.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #5e5e5e;
+}
+
+.messages{
+    width: 100%;
+
+    text-align: center;
+    list-style-type: none;
+}
+.box-mesge{
+    margin: 5px 0px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    border-radius: 10px;
+    background: rgba(196, 204, 196, 0.658);
+}
+
+.box-mesge.error{
+    background: rgba(218, 94, 94, 0.658);
+}
+.box-mesge.success{
+    background: rgba(94, 218, 100, 0.658);
+}
+
+.background-image {
+    position: fixed;
+    background-image: url('/asstes/images/lsp_blog-hero-img_060319-064337.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(20px);
+    z-index: -1;
+
+}
+
+section {
+    z-index: 10;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
+
+}
+
+.contanier {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 15px;
+    border-radius: 19px;
+
+}
+
+.contanier form {
+    margin: 25px auto;
+    width: 25%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    /* min-width: 300px; */
+    min-height: 595px;
+}
+
+.box-input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 292px;
+    min-width: 200px;
+    gap: 5px;
+}
+
+.box-input label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    margin-left: 10px;
+}
+
+.box-input input {
+    width: 100%;
+
+    outline: none;
+    border: none;
+    padding: 0 5px;
+    padding-left: 35px;
+    height: 35px;
+    display: flex;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, .5);
+    outline: transparent solid 1px;
+    transition: all .5s ease;
+
+}
+
+.box-input input:is(:focus, :hover) {
+    background: rgba(255, 255, 255, .8);
+    outline: #000000 solid 1px;
+
+}
+
+.box-input input::placeholder {
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 900;
+}
+
+.box-input-input {
+    position: relative;
+}
+
+.box-input-input svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.btn-submit {
+    border: none;
+    outline: none;
+    width: 95px;
+    height: 45px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(0, 149, 246, .8);
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn-a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(246, 0, 0, .8);
+}
+
+.box-btn {
+    display: flex;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 220px;
+    min-width: 220px;
+    justify-content: space-around;
+}
+
+.box-getstarted {
+    background: url("/asstes/images/linktree-nedir-6.webp");
+    width: 60%;
+    height: 80%;
+    background-size: cover;
+    border-radius: 20px;
+    min-height: 595px;
+}
+
+.box-getstarted>h2 {
+    margin: 70px auto;
+    backdrop-filter: blur(18px);
+    text-align: center;
+    white-space: nowrap;
+    color: #e9e9e9;
+    font-size: clamp(14px, 2vw, 20px);
+}
+
+.box-getstarted>p {
+    margin: 100px auto;
+    width: 70%;
+    text-align: center;
+    font-weight: 600;
+    color: #e9e9e9;
+    backdrop-filter: blur(18px);
+}
+
+.titleFrom {
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.forgotPAssword {
+    margin-top: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.forgotPAssword>a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+.box-remember {
+    margin-top: 15px;
+    display: flex;
+    /* background: teal; */
+    width: 80%;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.box-remember>h4 {
+    font-weight: 800;
+    font-size: 14px;
+    color: #000000CC;
+}
+
+/* ######################################################################################## */
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background: #606062;
+    border-radius: 7px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.30), 0px 1px 1px rgba(0, 5);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-image: linear-gradient(#255CD2, #1D52C1)
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 0.45em;
+    top: 0.20em;
+    width: 0.24em;
+    height: 0.6em;
+    border: solid white;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+/* ####################################################################################################### */
+
+@media (max-width: 900px) {
+    .contanier {
+        flex-direction: column;
+        height: 100%;
+        gap: 50px;
+        margin: 50px 0;
+    }
+
+    .box-getstarted {
+        width: 90%;
+    }
+
+    .box-getstarted h2 {
+        margin: 70px auto;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width:455px) {
+    .box-getstarted>h2 {
+        width: 100%;
+        white-space: normal;
+        font-size: clamp(16px, 2vw, 18px);
+
+    }
+
+    .contanier form {
+        width: 100%;
+        /* min-width: 250px; */
+    }
+
+    .box-getstarted>p {
+        width: 100%;
+
+        font-size: 14px;
+
+    }
+    .box-btn{
+        width: 90%;
+        gap: 15px;
+        min-width: auto;
+    }
+
+}
+@media (max-width: 250px) {
+    .box-input{
+        width: 100%;
+        max-width: auto;
+        min-width: auto;
+    }
+    .box-btn{
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-submit{
+        width: 100%;
+    }
+}
