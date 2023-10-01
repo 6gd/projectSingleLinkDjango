@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
 </head>
 <body>
+    
     <section class="Section">
         <div class="div-one">
             <h1 class="logo"><span>T</span>wikLink</h1>
@@ -43,6 +44,10 @@
                 <div class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            {% for user in gg %}
+                            <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
+                            {% endfor %}
+                            {% comment %} <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
@@ -51,15 +56,17 @@
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
-                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
-                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
-                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li> {% endcomment %}
                         </ul>
                     </div>
                 </div>
                 <div class="splide two">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            {% for user in gg %}
+                            <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
+                            {% endfor %}
+                            {% comment %} <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
@@ -69,8 +76,7 @@
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
-                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
-                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
+                            <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li> {% endcomment %}
                             
                         </ul>
                     </div>

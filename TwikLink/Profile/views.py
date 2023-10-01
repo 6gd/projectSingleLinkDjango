@@ -43,8 +43,15 @@ class ChangePasswordView(PasswordResetFromKeyView):
 class ChangePasswordViewDone(PasswordResetFromKeyDoneView):
     template_name = "ChangedSuccess.html"
 
-class HomeView(TemplateView):
+class HomeView(ListView):
+    model = Profile
     template_name = 'home.html'
+    context_object_name = "gg"
+# class HomeView(TemplateView):
+#     model = Profile
+#     template_name = 'home.html'
+
+
 class ProfileView(DetailView):
     model = Profile
     template_name  = 'index.html'

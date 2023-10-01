@@ -4,9 +4,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from colorfield.fields import ColorField
-from colorfield.fields import CharField
-# from .forms import MyCustomSignupForm
-# Create your models here.
+import requests,random,string
+from django.core.files.base import ContentFile
 
 class Profile(models.Model):
     GradientOptions = [
@@ -44,10 +43,6 @@ class Profile(models.Model):
     PhoneNumber = models.CharField(max_length=30,null=True, blank=True)
     Address = models.CharField(max_length=200,null=True, blank=True)
     Country = models.CharField(max_length=200,null=True, blank=True)
-    # CurrentPass= models.CharField(max_length=100,null=True,blank=True)
-    # NewPass = models.CharField(max_length=100,null=True,blank=True)
-    # ConNewPass = models.CharField(max_length=100,null=True,blank=True)
-
     def __str__(self):
         return str(self.username)
 
@@ -78,16 +73,25 @@ class Item(models.Model):
     def __str__(self):
         return str(self.user)
     
-import gender_guesser.detector as genders
 
 @receiver(post_save, sender=User)
 def create_profile(sender,created,instance, **kwargs):
     if created:
-        d = genders.Detector()
-        genderx = d.get_gender(instance)
-        print(genderx)
-        if genderx == "unknown":
-            genderx = "male"
+        profile = Profile.objects.create(username=instance)
+        url = "https://any-anime.p.rapidapi.com/anime/img"
+        headers = {
+            "X-RapidAPI-Key": "5598a32debmshbb383db660e30f3p1dec56jsnce737093fa6e",
+            "X-RapidAPI-Host": "any-anime.p.rapidapi.com"
+        }
 
-        Profile.objects.create(username=instance)
+        response = requests.get(url, headers=headers)
+        image_data = requests.get(str(response.text).split('src="')[1].split('"')[0]).content
+
+        randomNameImage = ''.join(random.choice(string.ascii_letters) for _ in range(3))
+        image_name = f"{randomNameImage}.png"
+
+        profile.photoProfile.save(image_name, ContentFile(image_data), save=True)
+
+
+
 post_save.connect(create_profile, sender=User)
