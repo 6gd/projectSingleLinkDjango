@@ -44,9 +44,11 @@
                 <div class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            {% if user %}
                             {% for user in gg %}
                             <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
                             {% endfor %}
+                            {% endif %}
                             {% comment %} <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
@@ -63,9 +65,12 @@
                 <div class="splide two">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            {% if user %}
                             {% for user in gg %}
                             <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
                             {% endfor %}
+                            {% endif %}
+                            
                             {% comment %} <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
                             <li class="splide__slide"><img data-splide-lazy="{% static 'asstes/images/Profile.jpg' %}" alt=""></li>
