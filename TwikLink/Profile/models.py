@@ -23,7 +23,7 @@ class Profile(models.Model):
     # colorUser = models.CharField(max_length=6, null=True,blank=True,)
     Description = models.TextField(blank=True,null=True)
     colorDescription = ColorField(default='#ffffff',null=True,blank=True,format='hex')
-    photoProfile = models.ImageField(default='/asstes/images/806c33e6481b79ba7ec27073f24cb781.jpg',upload_to='PhotoProfiles/' ,height_field=None, width_field=None, max_length=None, null=True,blank=True)
+    photoProfile = models.ImageField(upload_to='PhotoProfiles/' ,height_field=None, width_field=None, max_length=None, null=True,blank=True)
     BackgroundProfile = models.ImageField(default='/asstes/images/backgroundProfile.jpg',upload_to='BackgroundProfiles/', height_field=None, width_field=None, max_length=None, null=True,blank=True)
     BackgroundBlur = models.IntegerField(blank=True, null=True,default=8)
     gradientActive = models.BooleanField(default=True)
