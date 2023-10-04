@@ -35,7 +35,11 @@
             <div class="box-A-img">
                 <img src="{% static 'asstes/images/lsp_linktree-profile-queensland_070319-011015-transformed.jpeg' %}" alt="">
             </div>
+            {% if request.user.is_authenticated%}
+            <h3 class="youare">TiwkLink.com/@{{request.user.username}}</h3>
+            {% else %}
             <h3 class="youare">TiwkLink.com/@youare</h3>
+            {% endif %}
         </div>
     </section>
     <section class="Section">
