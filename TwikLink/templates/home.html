@@ -44,7 +44,7 @@
                 <div class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            {% if user %}
+                            {% if !user %}
                             {% for user in gg %}
                             <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
                             {% endfor %}
@@ -65,7 +65,7 @@
                 <div class="splide two">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            {% if user %}
+                            {% if !user %}
                             {% for user in gg %}
                             <li class="splide__slide"><img data-splide-lazy="{{user.photoProfile.url}}" alt=""></li>
                             {% endfor %}
