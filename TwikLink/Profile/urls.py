@@ -27,5 +27,5 @@ urlpatterns = [
         name="account_reset_password_from_key_done_gg",
     ),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
