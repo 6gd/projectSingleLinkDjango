@@ -1,9 +1,6 @@
 from django.urls import path,re_path
 from .views import ProfileView,SignUpCutosm,LoginCutosm,HomeView,AccountView,logout_view,UpdataItemView,ResetPasswordView,DoneResetPasswordView,ChangePasswordView,ChangePasswordViewDone
-from django.conf.urls.static import static
-from django.conf import settings
 
-from allauth.account.views import password_reset_from_key
 
 urlpatterns = [
     path('@<username>', ProfileView.as_view(),name='profile'),
