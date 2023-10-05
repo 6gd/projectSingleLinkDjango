@@ -1,5 +1,7 @@
 from django.urls import path,re_path
 from .views import ProfileView,SignUpCutosm,LoginCutosm,HomeView,AccountView,logout_view,UpdataItemView,ResetPasswordView,DoneResetPasswordView,ChangePasswordView,ChangePasswordViewDone
+from django.conf.urls.static import static
+from django.conf import settings
 
 from allauth.account.views import password_reset_from_key
 
@@ -25,5 +27,5 @@ urlpatterns = [
         name="account_reset_password_from_key_done_gg",
     ),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
