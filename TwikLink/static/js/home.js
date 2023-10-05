@@ -22,7 +22,7 @@ const splide = new Splide( '.splide', {
     direction   : 'ttb',
     transition: 'fade',
     gap:'15px',
-    lazyLoad:'sequential',
+    // lazyLoad:'sequential',
     arrows: false,
     pagination: false,
     autoScroll: {
@@ -68,7 +68,7 @@ const splidex = new Splide( '.splide.two', {
     height: '100%',
     gap:'15px',
     transition: 'fade',
-    lazyLoad:'sequential',
+    // lazyLoad:'sequential',
     pagination: false,
     arrows: false,
     autoScroll: {
