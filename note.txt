@@ -1,3 +1,4 @@
 #################### Stop in python manage.py collectstatic
 
 data-splide-lazy
+https://mahdi-rtjk.onrender.com/media/PhotoProfiles/pDI.png
