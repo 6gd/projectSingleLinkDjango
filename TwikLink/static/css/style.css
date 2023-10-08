@@ -327,6 +327,11 @@ section{
     max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 .descripon{
     text-align: center;
