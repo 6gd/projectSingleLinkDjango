@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +47,15 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
 
+
 ]
+ADMIN_INTERFACE_MENU = False
+ADMIN_INTERFACE_INDEX = False
+ADMIN_INTERFACE_APP_LIST = False
+ADMIN_INTERFACE_ORDER = [
+    ("auth", ["User"]),
+]
+
 
 SITE_ID = 1
 ACCOUNT_FORMS = {'signup': 'mysite.forms.MyCustomSignupForm'}
@@ -196,3 +205,6 @@ EMAIL_HOST_PASSWORD = 'dabw kqxr wevd caqr'  # Your email password
 
 ACCOUNT_PASSWORD_RESET_KEY_SUBJECT = 'account/email/password_reset_key_subject.txt'
 ACCOUNT_PASSWORD_RESET_TIMEOUT = 30
+
+
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "TwikLink"
