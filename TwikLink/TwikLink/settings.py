@@ -49,13 +49,6 @@ INSTALLED_APPS = [
 
 
 ]
-ADMIN_INTERFACE_MENU = False
-ADMIN_INTERFACE_INDEX = False
-ADMIN_INTERFACE_APP_LIST = False
-ADMIN_INTERFACE_ORDER = [
-    ("auth", ["User"]),
-]
-
 
 SITE_ID = 1
 ACCOUNT_FORMS = {'signup': 'mysite.forms.MyCustomSignupForm'}
