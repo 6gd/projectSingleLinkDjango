@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'TwikLink.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-databaseurl = "postgres://twik_user:bDQ7mGQMkBOR7DziwaBFNrRLYv2MuHmo@dpg-ckerl2ea3ovc739560jg-a.frankfurt-postgres.render.com/twik"
+databaseurl = "postgres://gg_wcqa_user:bCGbrMCeXlWJlG8kAXNV4nZ9g3fcEAJC@dpg-ckm24co710pc73euo3ag-a.frankfurt-postgres.render.com/gg_wcqa"
 DATABASES = {
     'default': dj_database_url.config(
         default=databaseurl
