@@ -8,8 +8,8 @@ from django.views.static import serve
 
 urlpatterns = [
     path('mahdiesscv69/admin/', admin.site.urls),
-    path('defender-admin/defender/', include('defender.urls')),
     path('', include("Profile.urls")),
+    path('defender-admin/defender/', include("defender.urls")),
     path('accounts/', include('allauth.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
