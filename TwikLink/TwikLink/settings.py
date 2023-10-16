@@ -7,20 +7,16 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
 SECRET_KEY = config("SECRET_KEY")
 
-# SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
-
 DEBUG = config("DEBUG",cast=bool)
-# DEBUG = True
-ALLOWED_HOSTS = ["*"]
 
 
-# Application definition
+ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb"]
+
+
 
 INSTALLED_APPS = [
     'admin_interface',
