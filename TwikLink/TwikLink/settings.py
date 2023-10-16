@@ -11,12 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
-# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY")
 
-SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
+# SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
 
-# DEBUG = config("DEBUG",cast=bool)
-DEBUG = True
+DEBUG = config("DEBUG",cast=bool)
+# DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
-    # 'defender',
+    'defender',
 
 ]
 
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    # 'defender.middleware.FailedLoginMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
 ]
 
 ROOT_URLCONF = 'TwikLink.urls'

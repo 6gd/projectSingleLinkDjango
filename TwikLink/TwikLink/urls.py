@@ -7,9 +7,9 @@ from django.views.static import serve
 
 
 urlpatterns = [
+    path('defender-admin/defender/', include("defender.urls")),
     path('mahdi-admin/', admin.site.urls),
     path('', include("Profile.urls")),
-    path('defender-admin/defender/', include("defender.urls")),
     path('accounts/', include('allauth.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
