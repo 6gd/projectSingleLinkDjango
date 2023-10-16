@@ -100,7 +100,7 @@ class LoginCutosm(LoginView):
         return super().form_valid(form)
     def form_invalid(self, form):
         messages.error(self.request,'Login failed')
-        return redirect('/login')
+        return reverse_lazy('login')
 
 
 
