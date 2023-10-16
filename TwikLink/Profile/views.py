@@ -88,7 +88,7 @@ class SignUpCutosm(SignupView):
         elif 'email' in form.errors:
             messages.error(self.request,'The Email has been taken')
 
-        return redirect('/signup')
+        return redirect(reverse_lazy('signup'))
 
 
 class LoginCutosm(LoginView):
@@ -100,7 +100,7 @@ class LoginCutosm(LoginView):
         return super().form_valid(form)
     def form_invalid(self, form):
         messages.error(self.request,'Login failed')
-        return reverse_lazy('login')
+        return redirect(reverse_lazy('login'))
 
 
 
