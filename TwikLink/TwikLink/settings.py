@@ -13,7 +13,6 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG",cast=bool)
 
-
 ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app"]
 
 
@@ -34,6 +33,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
     "debug_toolbar",
+    'admin_honeypot',
     # 'defender',
 
 ]

@@ -8,8 +8,9 @@ from django.views.static import serve
 
 urlpatterns = [
     # path('defender-admin/defender/', include("defender.urls")),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('mahdi-admin/', admin.site.urls),
+    path('mahdi-2020-admin/', admin.site.urls),
     path('', include("Profile.urls")),
     path('accounts/', include('allauth.urls')),
 
