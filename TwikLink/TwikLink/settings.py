@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
+    "debug_toolbar",
     # 'defender',
 
 ]
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     # 'defender.middleware.FailedLoginMiddleware',
 ]
 
@@ -89,20 +91,6 @@ DATABASES = {
         default=databaseurl
     )
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         "NAME": "TwikLink",
-#         "USER": "postgres",
-#         "PASSWORD": "toor",
-#         "HOST": "localhost",
-#         "PORT": "5432",
-#     }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -188,3 +176,9 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
