@@ -180,3 +180,7 @@ INTERNAL_IPS = [
 ]
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net')
+CSP_IMG_SRC = ("'self'",)
+CSP_MEDIA_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'",)
+CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
