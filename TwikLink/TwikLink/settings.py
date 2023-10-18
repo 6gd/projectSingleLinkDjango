@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    'csp.middleware.CSPMiddleware',
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'TwikLink.urls'
@@ -173,14 +173,10 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
-CSP_DEFAULT_SRC = ("'self'",)
-CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net')
-CSP_IMG_SRC = ("'self'",)
-CSP_MEDIA_SRC = ("'self'",)
-CSP_STYLE_SRC = ("'self'",)
-CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
+
+# CSP_DEFAULT_SRC = ("'self'",)
+# CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net')
+# CSP_IMG_SRC = ("'self'",)
+# CSP_MEDIA_SRC = ("'self'",)
+# CSP_STYLE_SRC = ("'self'", 'cdn.jsdelivr.net')
+# CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
