@@ -23,7 +23,8 @@ class Profile(models.Model):
     # colorUser = models.CharField(max_length=6, null=True,blank=True,)
     Description = models.TextField(blank=True,null=True)
     colorDescription = ColorField(default='#ffffff',null=True,blank=True,format='hex')
-    photoProfile = models.ImageField(upload_to='PhotoProfiles/' ,height_field=None, width_field=None, max_length=None, null=True,blank=True)
+    photoProfile = models.CharField(null=True,blank=True)
+    # photoProfile = models.ImageField(upload_to='PhotoProfiles/' ,height_field=None, width_field=None, max_length=None, null=True,blank=True)
     BackgroundProfile = models.ImageField(default='/asstes/images/backgroundProfile.jpg',upload_to='BackgroundProfiles/', height_field=None, width_field=None, max_length=None, null=True,blank=True)
     BackgroundBlur = models.IntegerField(blank=True, null=True,default=8)
     gradientActive = models.BooleanField(default=True)
@@ -85,12 +86,15 @@ def create_profile(sender,created,instance, **kwargs):
         }
 
         response = requests.get(url, headers=headers)
-        image_data = requests.get(str(response.text).split('src="')[1].split('"')[0]).content
 
-        randomNameImage = ''.join(random.choice(string.ascii_letters) for _ in range(3))
-        image_name = f"{randomNameImage}.png"
+        # randomNameImage = ''.join(random.choice(string.ascii_letters) for _ in range(3))
+        # image_name = f"{randomNameImage}.png"
+        if response.status_code == 200:
+            image_data = str(response.text).split('src="')[1].split('"')[0]
+            profile.photoProfile = image_data
+            profile.save()
 
-        profile.photoProfile.save(image_name, ContentFile(image_data), save=True)
+        # profile.photoProfile.save(image_name, ContentFile(image_data), save=True)
 
 
 

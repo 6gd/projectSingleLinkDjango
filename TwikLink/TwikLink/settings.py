@@ -9,11 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
 
-DEBUG = config("DEBUG",cast=bool)
-
-ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app"]
+# DEBUG = config("DEBUG",cast=bool)
+DEBUG = True
+ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app",'127.0.0.1:8000',"127.0.0.1"]
 
 
 
@@ -162,21 +163,29 @@ ACCOUNT_PASSWORD_RESET_TIMEOUT = 30
 
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "TwikLink"
 
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_SECONDS = 86400
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_SECONDS = 86400
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
-
-# CSP_DEFAULT_SRC = ("'self'",)
-# CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net')
-# CSP_IMG_SRC = ("'self'",)
-# CSP_MEDIA_SRC = ("'self'",)
-# CSP_STYLE_SRC = ("'self'", 'cdn.jsdelivr.net')
-# CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
+# Use the generated certificates
+SECURE_SSL_HOST = 'localhost'
+SECURE_SSL_PORT = 8000
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

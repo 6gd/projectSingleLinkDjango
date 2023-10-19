@@ -47,13 +47,13 @@
     {% endif %}
     <section id="section">
         <div class="likeNav">
-            <img src="{{profile.photoProfile.url}}"  loading="lazy"  alt="">
+            <img src="{{profile.photoProfile}}"  loading="lazy"  alt="">
             <h3 style="color:#{{profile.colorUser}}">@{{profile.username}}  {% if profile.verifyUser %}<img src="{% static '/asstes/svg/verify.svg' %}">{% endif %}</h3>
             <button id="buttonDots"><img src="{% static '/asstes/svg/352548_three dots_icon.svg' %}" alt=""></button>
         </div>
         <div class="contanier">
             <div class="boxInfo">
-                <img src="{{profile.photoProfile.url}}"  loading="lazy"  alt="" class="imgPrevew">
+                <img src="{{profile.photoProfile}}"  loading="lazy"  alt="" class="imgPrevew">
                 <h3 class="Username" style="color:#{{profile.colorUser}}">@{{profile.username}} {% if profile.verifyUser %}<img src="{% static '/asstes/svg/verify.svg' %}">{% endif %}</h3>
                 <p class="descripon" style="color:{{profile.colorDescription}}">{{profile.Description}}</p>
             </div>
