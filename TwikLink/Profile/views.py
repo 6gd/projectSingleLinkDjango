@@ -47,9 +47,11 @@ class DoneResetPasswordView(PasswordResetDoneView):
     template_name = "forgotpasswordDone.html"
 
 class ChangePasswordView(PasswordResetFromKeyView):
-    reset_url_key = "gg-password"
     form_class = CustomPasswordResetForm
-    template_name = "resetpassword.html"
+    template_name = 'resetpassword.html'
+
+    def get_success_url(self):
+        return reverse('login')
     # success_url = reverse_lazy("account_reset_password_from_key_done_gg")
     
 
