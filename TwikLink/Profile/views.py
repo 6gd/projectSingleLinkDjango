@@ -21,11 +21,23 @@ from django.contrib.auth import update_session_auth_hash
 from django.templatetags.static import static
 from allauth.account.views import PasswordResetView, PasswordResetDoneView,PasswordResetFromKeyView,PasswordResetFromKeyDoneView
 
+import requests
 
 # class CustomPasswordResetView(PasswordResetFromKeyView):
 #     form_class = CustomPasswordResetForm
 
+def uploadToCloud(image):
+    headers = {
+    'Content-Type': 'image/png',
+    }
 
+    params = {
+        'key': 'Aps889HQN06qspnJrlg9Xz',
+    }
+
+    data = image
+    response = requests.post('https://www.filestackapi.com/api/store/S3', params=params, headers=headers, data=data)
+    return str(response.json()["url"])
 
 class ResetPasswordView(PasswordResetView):
     template_name = "forgotpassword.html"
@@ -133,12 +145,18 @@ class AccountView(LoginRequiredMixin,TemplateView):
             mU = User.objects.get(username=request.user.username)
             mf = Profile.objects.get(username=mU)
             pform = UsernameForm(request.POST,instance=mU)
-            # print(request.FILES)
+            tform = PhotoProfileForm(request.POST, request.FILES,instance=mf)
 
-            tform = PhotoProfileForm(request.POST,request.FILES,instance=mf)
             if pform.is_valid() and tform.is_valid():
                 pform.save()
-                tform.save()
+                uploaded_file  = request.FILES["photoProfile"]
+                file_contents = b''
+                for chunk in uploaded_file.chunks():
+                    file_contents += chunk
+                
+                urlImage= uploadToCloud(file_contents)
+                mf.photoProfile = urlImage
+                mf.save()
                 
                 return redirect ("Account")
         elif request.POST.get('form_type') == 'gform':
@@ -224,3 +242,5 @@ class UpdataItemView(LoginRequiredMixin,TemplateView):
             It.delete()
             return redirect("Account")
         return redirect("Account")
+    
+

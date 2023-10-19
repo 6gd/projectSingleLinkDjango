@@ -35,11 +35,11 @@
         <section class="section">
             <div class="box">
                 <div class="box-info">
-                    {% if show.photoProfile.url != '' %}
-                    <img src="{{show.photoProfile.url}}" alt="" id="PhotoProfile">
+                    {% if show.photoProfile != '' %}
+                    <img src="{{show.photoProfile}}" alt="" id="PhotoProfile">
                     {% else %}
                     <img src="{% static '/asstes/images/806c33e6481b79ba7ec27073f24cb781.jpg' %}" alt="" id="PhotoProfile">
-                    <p>{{tform.photoProfile.url}}</p>
+                    <p>{{tform.photoProfile}}</p>
                     {% endif %}
                     
                     <h3 id="username">@{{request.user.username}} {% if show.verifyUser %}<img src="{% static '/asstes/svg/verify.svg' %}" alt="">

@@ -12,8 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG",cast=bool)
-
-ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app"]
+ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app",]
 
 
 
@@ -174,9 +173,16 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
-# CSP_DEFAULT_SRC = ("'self'",)
-# CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net')
-# CSP_IMG_SRC = ("'self'",)
-# CSP_MEDIA_SRC = ("'self'",)
-# CSP_STYLE_SRC = ("'self'", 'cdn.jsdelivr.net')
-# CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_HSTS_SECONDS = 31536000 
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# SECURE_SSL_HOST = 'localhost'
+# SECURE_SSL_PORT = 8000
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
