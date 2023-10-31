@@ -8,6 +8,29 @@
 body{
     background: #5e5e5e;
 }
+.messages{
+    width: 100%;
+
+    text-align: center;
+    list-style-type: none;
+}
+.box-mesge{
+    margin: 5px 0px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    border-radius: 10px;
+    background: rgba(196, 204, 196, 0.658);
+}
+
+.box-mesge.error{
+    background: rgba(218, 94, 94, 0.658);
+}
+.box-mesge.success{
+    background: rgba(94, 218, 100, 0.658);
+}
 .background-image{
     position: fixed;
     /* background-image: url('/asstes/images/lsp_blog-hero-img_060319-064337.png'); */

@@ -8,11 +8,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
+SECRET_KEY = 'django-insecure-h2axrib3p&ga9-3-f2^f7&+^o2gr7w#7fj%7kso3#_!z+af^7g'
+DEBUG = True
+# SECRET_KEY = config("SECRET_KEY")
 
-SECRET_KEY = config("SECRET_KEY")
-
-DEBUG = config("DEBUG",cast=bool)
-ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app",]
+# DEBUG = config("DEBUG",cast=bool)
+ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app","127.0.0.1",'127.0.0.1:8000']
 
 
 
@@ -29,7 +30,7 @@ INSTALLED_APPS = [
     'Profile',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
     "debug_toolbar",
     'admin_honeypot',
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "allauth.account.middleware.AccountMiddleware"
     # 'csp.middleware.CSPMiddleware',
 ]
 
@@ -139,6 +141,7 @@ ACCOUNT_FORMS = {
     'signup': 'Profile.forms.MyCustomSignupForm',
     'login': 'Profile.forms.MyCustomLoginForm',
     'change_password': 'Profile.forms.ChangePasswordMyForm',
+    'reset_password_from_key': 'Profile.forms.CustomPasswordResetForm'
 }
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS =True
 
@@ -155,34 +158,34 @@ EMAIL_USE_TLS = True  # Use TLS for secure communication with the SMTP server
 EMAIL_HOST_USER = 'mahdibaibaa@gmail.com'  # Your email address for sending emails
 EMAIL_HOST_PASSWORD = 'dabw kqxr wevd caqr'  # Your email password
 
-ACCOUNT_PASSWORD_RESET_KEY_SUBJECT = 'account/email/password_reset_key_subject.txt'
+# ACCOUNT_PASSWORD_RESET_KEY_SUBJECT = 'account/email/password_reset_key_subject.txt'
 ACCOUNT_PASSWORD_RESET_TIMEOUT = 30
 
 
-ACCOUNT_EMAIL_SUBJECT_PREFIX = "TwikLink"
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "\u200B"
 
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_SSL_REDIRECT = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_SECONDS = 86400
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_SECONDS = 86400
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000 
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
-
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = False
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_HSTS_SECONDS = 31536000 
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-
-# SECURE_SSL_HOST = 'localhost'
-# SECURE_SSL_PORT = 8000
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+SECURE_SSL_HOST = 'localhost'
+SECURE_SSL_PORT = 8000
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
