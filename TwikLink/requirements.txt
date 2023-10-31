@@ -9,9 +9,8 @@ dj-database-url==2.1.0
 Django==4.2.1
 django-admin-honeypot-updated-2021==1.2.0
 django-admin-interface==0.26.1
-django-allauth==0.54.0
+django-allauth==0.57.0
 django-colorfield==0.9.0
-django-csp==3.7
 django-debug-toolbar==4.2.0
 django-defender==0.9.7
 django-ipware==5.0.1

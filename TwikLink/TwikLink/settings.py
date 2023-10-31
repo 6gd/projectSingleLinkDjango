@@ -11,6 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG",cast=bool)
+
+
 ALLOWED_HOSTS = ["mahdi-ggerftgd.koyeb.app"]
 
 
@@ -49,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "allauth.account.middleware.AccountMiddleware"
+    "allauth.account.middleware.AccountMiddleware",
     # 'csp.middleware.CSPMiddleware',
 ]
 
