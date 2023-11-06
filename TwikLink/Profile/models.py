@@ -79,23 +79,16 @@ class Item(models.Model):
 def create_profile(sender,created,instance, **kwargs):
     if created:
         profile = Profile.objects.create(username=instance)
-        url = "https://any-anime.p.rapidapi.com/anime/img"
+        url = "https://any-anime.p.rapidapi.com/v1/anime/png/1"
         headers = {
             "X-RapidAPI-Key": "5598a32debmshbb383db660e30f3p1dec56jsnce737093fa6e",
             "X-RapidAPI-Host": "any-anime.p.rapidapi.com"
         }
-
         response = requests.get(url, headers=headers)
-
-        # randomNameImage = ''.join(random.choice(string.ascii_letters) for _ in range(3))
-        # image_name = f"{randomNameImage}.png"
         if response.status_code == 200:
-            image_data = str(response.text).split('src="')[1].split('"')[0]
+            image_data = str(response.json()["images"][0])
             profile.photoProfile = image_data
             profile.save()
-
-        # profile.photoProfile.save(image_name, ContentFile(image_data), save=True)
-
 
 
 post_save.connect(create_profile, sender=User)
