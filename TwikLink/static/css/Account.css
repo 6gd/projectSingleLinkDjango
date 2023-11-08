@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --background: #03081B;
+    --colorbox: #0F172A;
+    --buttonColor: #0EA5E9
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +24,7 @@ body {
 
 .background-image {
     position: fixed;
-    background-image: url('/asstes/images/lsp_blog-hero-img_060319-064337.png');
+    background:var(--background);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -44,7 +51,7 @@ body {
     backdrop-filter: blur(8.5px);
     -webkit-backdrop-filter: blur(8.5px);
     border-radius: 30px;
-    background: #293845;
+    background:var(--colorbox);
 
 
 }
@@ -122,7 +129,7 @@ body {
     font-weight: 500;
     height: 40px;
     color: rgba(255, 255, 255, 0.9);
-    background: rgb(0, 132, 255);
+    background: var(--buttonColor);
     margin: 0 25px;
 }
 
@@ -147,7 +154,7 @@ body {
     margin: 15px;
     border-radius: 20px;
     min-width: 150px;
-    background: #293845;
+    background: var(--colorbox);
 
     display: flex;
     flex-direction: column;
@@ -316,7 +323,7 @@ body {
     border: none;
     outline: none;
     font-weight: 700;
-    background: rgb(0, 132, 255);
+    background: var(--buttonColor);
     border-radius: 10px;
     border: 1px solid #000000;
     color: rgba(255, 255, 255, 0.9);
@@ -352,7 +359,7 @@ body {
     padding: 25px;
 
     border-radius: 20px;
-    background: #293845;
+    background: var(--colorbox);
 
     width: 80%;
     display: flex;
@@ -365,7 +372,7 @@ body {
 .contanier-two {
     padding: 25px;
     margin: 25px 0;
-    background: #293845;
+    background: var(--colorbox);
 
     border-radius: 20px;
     width: 80%;
@@ -504,7 +511,7 @@ body {
 }
 
 .section-Two {
-    background: #293845;
+    background: var(--colorbox);
     width: 100%;
     min-height: 100vh;
     flex-direction: column;
@@ -699,7 +706,7 @@ body {
 .section-Three {
     margin-top: 50px;
     width: 100%;
-    background: #293845;
+    background: var(--colorbox);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -721,7 +728,7 @@ body {
     width: 80px;
     height: 40px;
     border: none;
-    background: #0087ff;
+    background: var(--buttonColor);
     cursor: pointer;
     font-weight: 500;
     border-radius: 8px;
@@ -1004,7 +1011,7 @@ body {
 }
 
 .buttons .refresh {
-    background: #0087ff;
+    background: var(--buttonColor);
 }
 
 .buttons .refresh:hover {
