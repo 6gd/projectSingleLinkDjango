@@ -29,7 +29,7 @@ body {
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: blur(20px);
+    /* filter: blur(20px); */
     z-index: -1;
 }
 
