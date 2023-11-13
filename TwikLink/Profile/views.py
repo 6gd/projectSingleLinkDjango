@@ -20,6 +20,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth import update_session_auth_hash
 from django.templatetags.static import static
 from allauth.account.views import PasswordResetView, PasswordResetDoneView,PasswordResetFromKeyView,PasswordResetFromKeyDoneView
+from django.http import HttpResponseNotFound
 
 import requests
 
@@ -205,7 +206,7 @@ class AccountView(LoginRequiredMixin,TemplateView):
 
 
 def error_404(request,exception):
-    return render(request,"404.html")
+    return HttpResponseNotFound(render(request,"404.html"))
 
 def logout_view(request):
     logout(request)
