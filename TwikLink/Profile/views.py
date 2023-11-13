@@ -204,7 +204,7 @@ class AccountView(LoginRequiredMixin,TemplateView):
 
 
 
-def error_404_view(request,exception):
+def error_404(request,exception):
     return render(request,"404.html")
 
 def logout_view(request):

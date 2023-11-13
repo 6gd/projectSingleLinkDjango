@@ -17,5 +17,5 @@ urlpatterns = [
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }), ]
 
-handler404 = 'Profile.views.error_404_view'
+handler404 = 'Profile.views.error_404'
 
