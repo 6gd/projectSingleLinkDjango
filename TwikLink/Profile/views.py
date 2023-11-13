@@ -162,7 +162,6 @@ class AccountView(LoginRequiredMixin,TemplateView):
                 
                 return redirect ("Account")
         elif request.POST.get('form_type') == 'gform':
-            print(request.POST)
             form = ChangePasswordMyForm(request.user,request.POST)
             if form.is_valid():
                 form.save()
@@ -188,10 +187,7 @@ class AccountView(LoginRequiredMixin,TemplateView):
             if form.is_valid():
                 form.save()
                 return redirect ("Account")
-            else:
-                errors = form.errors 
-                print(errors)
-
+            
         return redirect ("Account")
 
         ###########################################################################
@@ -237,7 +233,6 @@ class UpdataItemView(LoginRequiredMixin,TemplateView):
             form = StyleItem(request.POST,instance=It)
             if form.is_valid():
                 form.save()
-            print(form.errors)
         elif request.POST.get('form_type') == 'Dform':
             mU = User.objects.get(username=request.user.username)
             mf = Profile.objects.get(username=mU)
