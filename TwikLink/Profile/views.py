@@ -206,7 +206,8 @@ class AccountView(LoginRequiredMixin,TemplateView):
 
 
 def error_404(request,exception):
-    return HttpResponseNotFound(render(request,"404.html"))
+    data = {"name": "mahdi-ggerftgd.koyeb.app"}
+    return HttpResponseNotFound(render(request,"404.html",data))
 
 def logout_view(request):
     logout(request)

@@ -30,11 +30,9 @@ INSTALLED_APPS = [
     'Profile',
     'allauth',
     'allauth.account',
-    # 'allauth.socialaccount',
     'whitenoise.runserver_nostatic',
     "debug_toolbar",
     'admin_honeypot',
-    # 'defender',
 
 ]
 
@@ -52,7 +50,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    # 'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'TwikLink.urls'
