@@ -185,6 +185,14 @@ class AccountView(LoginRequiredMixin,TemplateView):
             
             form = ProfileCustomizer(request.POST,request.FILES,instance=mf)
             if form.is_valid():
+                uploaded_file  = request.FILES["BackgroundProfile"]
+                file_contents = b''
+                for chunk in uploaded_file.chunks():
+                    file_contents += chunk
+                
+                urlImage= uploadToCloud(file_contents)
+                mf.BackgroundProfile = urlImage
+                mf.save()
                 form.save()
                 return redirect ("Account")
             

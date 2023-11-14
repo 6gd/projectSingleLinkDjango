@@ -524,7 +524,7 @@ body {
     background: teal;
 
     min-height: 72px;
-    background: rgb(0, 132, 255);
+    background: var(--buttonColor);
 
     border-radius: 50px;
     display: flex;

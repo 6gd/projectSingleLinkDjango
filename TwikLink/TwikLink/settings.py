@@ -147,7 +147,6 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 # ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 
 
-# Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for sending emails
 EMAIL_HOST = 'smtp.gmail.com'  # Replace with your SMTP server address
 EMAIL_PORT = 587  # Port for your SMTP server (587 is the common port for TLS)
@@ -155,7 +154,6 @@ EMAIL_USE_TLS = True  # Use TLS for secure communication with the SMTP server
 EMAIL_HOST_USER = 'mahdibaibaa@gmail.com'  # Your email address for sending emails
 EMAIL_HOST_PASSWORD = 'dabw kqxr wevd caqr'  # Your email password
 
-# ACCOUNT_PASSWORD_RESET_KEY_SUBJECT = 'account/email/password_reset_key_subject.txt'
 ACCOUNT_PASSWORD_RESET_TIMEOUT = 30
 
 

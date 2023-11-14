@@ -42,7 +42,7 @@
     {% if not profile.gradientActive %}
     <div class="background-image"  style="background: linear-gradient({{profile.gradientoption}},{{profile.gradientOne}},{{profile.gradientTwo}});filter: blur({{profile.BackgroundBlur}}px);"></div>
     {% else %}
-    <div class="background-image"  style="background-image: url({{profile.BackgroundProfile.url}});filter: blur({{profile.BackgroundBlur}}px);"></div>
+    <div class="background-image"  style="background-image: url({{profile.BackgroundProfile}});filter: blur({{profile.BackgroundBlur}}px);"></div>
 
     {% endif %}
     <section id="section">

@@ -20,12 +20,11 @@ class Profile(models.Model):
     ]
     username = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     verifyUser = models.BooleanField(default=False)
-    # colorUser = models.CharField(max_length=6, null=True,blank=True,)
     Description = models.TextField(blank=True,null=True)
     colorDescription = ColorField(default='#ffffff',null=True,blank=True,format='hex')
     photoProfile = models.CharField(null=True,blank=True)
-    # photoProfile = models.ImageField(upload_to='PhotoProfiles/' ,height_field=None, width_field=None, max_length=None, null=True,blank=True)
-    BackgroundProfile = models.ImageField(default='/asstes/images/backgroundProfile.jpg',upload_to='BackgroundProfiles/', height_field=None, width_field=None, max_length=None, null=True,blank=True)
+    BackgroundProfile = models.CharField(null=True,blank=True)
+    # BackgroundProfile = models.ImageField(default='/asstes/images/backgroundProfile.jpg',upload_to='BackgroundProfiles/', height_field=None, width_field=None, max_length=None, null=True,blank=True)
     BackgroundBlur = models.IntegerField(blank=True, null=True,default=8)
     gradientActive = models.BooleanField(default=True)
     gradientOne = ColorField(default="#ffffff",null=True,blank=True,format='hex')
@@ -88,6 +87,7 @@ def create_profile(sender,created,instance, **kwargs):
         if response.status_code == 200:
             image_data = str(response.json()["images"][0])
             profile.photoProfile = image_data
+            profile.BackgroundProfile = "https://cdn.filestackcontent.com/Ylchl8DpR9W0wlz8BsAA"
             profile.save()
 
 
