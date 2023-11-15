@@ -1344,3 +1344,12 @@ body {
         width: 90%;
     }
 }
+
+
+.flagPlace{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translate(0%, -50%);
+    width: 25px;
+}

@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from colorfield.widgets import ColorWidget
 from allauth.account.forms import ResetPasswordKeyForm
+from django_countries.widgets import CountrySelectWidget
+from django_countries.fields import CountryField
+
 
 class MyCustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
@@ -22,6 +25,12 @@ class MyCustomLoginForm(LoginForm):
         self.fields['remember'].widget.attrs['checked'] = 'checked'
 
 class AccountDetails(forms.ModelForm):
+    Country = CountryField().formfield(
+        widget=CountrySelectWidget(
+            layout='{widget}<img class="country-select-flags flagPlace" id="{flag_id}" >',
+            attrs={'class': 'input-data'},
+        )
+    )
     class Meta:
         model = Profile
         fields = ["GithubURL","tiktokURL",'instagramURL','youtubeURL','linkedinURL','twitterURL','FacebookURL','FirstName','LastName','Email','PhoneNumber','Address','Country']
@@ -87,11 +96,7 @@ class AccountDetails(forms.ModelForm):
             'placeholder': 'Address',
 
         })
-        self.fields['Country'].widget.attrs.update({
-            'class': 'input-data',
-            'placeholder': 'Country',
-
-        })
+        # self.fields['Country'].widget = CountrySelectWidget(layout='{widget}<img class="country-select-flag" id="{flag_id}" style="margin: 6px 4px 0" src="{country.flag}">')
         
 
 class UsernameForm(UserChangeForm):

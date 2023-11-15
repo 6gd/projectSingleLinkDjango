@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     "debug_toolbar",
     'admin_honeypot',
+    'django_countries',
 
 ]
 
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'TwikLink.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-databaseurl = "postgres://gg_wcqa_user:bCGbrMCeXlWJlG8kAXNV4nZ9g3fcEAJC@dpg-ckm24co710pc73euo3ag-a.frankfurt-postgres.render.com/gg_wcqa"
+databaseurl = "postgres://gg_l51b_user:9JxdralYO3p8BcJkNIOimsS3NG21lc51@dpg-cladgg62eqrc73996ing-a.frankfurt-postgres.render.com/gg_l51b"
 DATABASES = {
     'default': dj_database_url.config(
         default=databaseurl
@@ -184,3 +185,6 @@ CSRF_COOKIE_SECURE = True
 # SECURE_SSL_PORT = 8000
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
+
+
+COUNTRIES_FLAG_URL = "flags/{code}.png"

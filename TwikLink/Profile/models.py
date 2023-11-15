@@ -6,6 +6,8 @@ from django.dispatch import receiver
 from colorfield.fields import ColorField
 import requests,random,string
 from django.core.files.base import ContentFile
+from django_countries.fields import CountryField
+
 
 class Profile(models.Model):
     GradientOptions = [
@@ -42,7 +44,7 @@ class Profile(models.Model):
     Email = models.CharField(max_length=30,null=True, blank=True)
     PhoneNumber = models.CharField(max_length=30,null=True, blank=True)
     Address = models.CharField(max_length=200,null=True, blank=True)
-    Country = models.CharField(max_length=200,null=True, blank=True)
+    Country = CountryField(blank_label=" ")
     def __str__(self):
         return str(self.username)
 
