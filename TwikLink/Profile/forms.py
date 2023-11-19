@@ -27,7 +27,7 @@ class MyCustomLoginForm(LoginForm):
 class AccountDetails(forms.ModelForm):
     Country = CountryField().formfield(
         widget=CountrySelectWidget(
-            layout='{widget}<img class="country-select-flags flagPlace" id="{flag_id}" >',
+            layout='{widget}<img class="country-select-flags flagPlace" id="{flag_id}" src="{country.flag}" >',
             attrs={'class': 'input-data'},
         )
     )

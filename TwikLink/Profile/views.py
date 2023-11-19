@@ -146,20 +146,26 @@ class AccountView(LoginRequiredMixin,TemplateView):
         elif request.POST.get('form_type') == 'tform':
             mU = User.objects.get(username=request.user.username)
             mf = Profile.objects.get(username=mU)
+            photoProfileBefore = mf.photoProfile
             pform = UsernameForm(request.POST,instance=mU)
             tform = PhotoProfileForm(request.POST, request.FILES,instance=mf)
 
             if pform.is_valid() and tform.is_valid():
                 pform.save()
-                uploaded_file  = request.FILES["photoProfile"]
-                file_contents = b''
-                for chunk in uploaded_file.chunks():
-                    file_contents += chunk
-                
-                urlImage= uploadToCloud(file_contents)
-                mf.photoProfile = urlImage
-                mf.save()
-                
+                if 'photoProfile' in request.FILES:
+                    uploaded_file  = request.FILES.get("photoProfile")
+                    file_contents = b''
+                    for chunk in uploaded_file.chunks():
+                        file_contents += chunk
+                    
+                    urlImage= uploadToCloud(file_contents)
+                    mf.photoProfile = urlImage
+                    mf.save()
+                    tform.save()
+                else:
+                    mf.photoProfile = photoProfileBefore
+                    mf.save()
+                    tform.save()
                 return redirect ("Account")
         elif request.POST.get('form_type') == 'gform':
             form = ChangePasswordMyForm(request.user,request.POST)
@@ -182,19 +188,26 @@ class AccountView(LoginRequiredMixin,TemplateView):
         elif request.POST.get('form_type') == 'cForm':
             mU = User.objects.get(username=request.user.username)
             mf = Profile.objects.get(username=mU)
-            
+            backgroundProfilebefore =mf.BackgroundProfile
             form = ProfileCustomizer(request.POST,request.FILES,instance=mf)
             if form.is_valid():
-                uploaded_file  = request.FILES["BackgroundProfile"]
-                file_contents = b''
-                for chunk in uploaded_file.chunks():
-                    file_contents += chunk
-                
-                urlImage= uploadToCloud(file_contents)
-                mf.BackgroundProfile = urlImage
-                mf.save()
-                form.save()
-                return redirect ("Account")
+                if 'BackgroundProfile' in request.FILES:
+                    uploaded_file  = request.FILES.get("BackgroundProfile")
+                    file_contents = b''
+                    for chunk in uploaded_file.chunks():
+                        file_contents += chunk
+                    
+                    urlImage= uploadToCloud(file_contents)
+                    
+                    mf.BackgroundProfile = urlImage
+                    mf.save()
+                    form.save()
+                else:
+                    mf.BackgroundProfile = backgroundProfilebefore
+                    mf.save()
+                    form.save()
+
+            return redirect ("Account")
             
         return redirect ("Account")
 
