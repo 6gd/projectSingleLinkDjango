@@ -496,3 +496,6 @@ section{
         width: 100%;
     }
 }
+.imgFlagProfile{
+    scale: .7;
+}
