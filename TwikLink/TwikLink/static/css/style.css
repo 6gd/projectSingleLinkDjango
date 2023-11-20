@@ -313,12 +313,14 @@ section{
 }
 .boxInfo{
     width: 100%;
-    min-height:250px;
+    /* min-height:250px; */
     display: flex;
     justify-content: center;
+    margin-top: 30px;
     align-items: center;
     gap: 10px;
     flex-direction: column;
+    margin-bottom: 14px;
 }
 .Username{
     margin: 0px;
@@ -339,6 +341,7 @@ section{
 .descripon{
     text-align: center;
     width: 65%;
+    padding-top: 8px;
     color: rgba(255, 255, 255,.7);
     font-size: clamp(14px, 2.5vw, 16px);
     font-weight: 700;
