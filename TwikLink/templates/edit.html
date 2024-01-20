@@ -47,11 +47,11 @@
                 {% csrf_token %}
                 <div class="choiseBackgroundBox">
                     <label for="colorpicker">Background Box color:</label>
-                    {% comment %} {{Sform}} {% endcomment %}
-                    {% comment %} <input type="color" id="colorpicker" value="#ffffff"> {% endcomment %}
-                    {% comment %} <input type="text" id="id_gradientOne" class="colorfield_field jscolor form-control" name="{{ Sform.backgroundbox.html_name }}" value="{{ Sform.backgroundbox.value|default_if_none:'#5558da' }}" placeholder="#5558da" data-jscolor="{hash:true,width:225,height:150,format:'hex',required:false,paletteCols:4,paletteHeight:28}"> {% endcomment %}
                     <input type="color" name="{{ Sform.backgroundbox.html_name }}" class="colorpicker" value={{Sform.backgroundbox.value}}>
+                    {% include 'colorfield/color.html' %}
 
+                </div>
+                    {% comment %} {{Sform.BorderColor }} {% endcomment %}
                 </div>
                 <div class="choiseBlur">
                     <label class="container">

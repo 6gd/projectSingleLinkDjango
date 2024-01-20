@@ -191,7 +191,7 @@ class StyleItem(forms.ModelForm):
     # gradientOne = ColorField()
     class Meta:
         model= Item
-        fields = ['gradientoption',"gradientOne",'gradientTwo', 'backgroundbox','BackgroundBlur','BackgroundBlurActive','backgoundActive']
+        fields = ['gradientoption',"gradientOne",'gradientTwo', 'backgroundbox','BackgroundBlur','BackgroundBlurActive','backgoundActive','BorderColor','Borderradius',"BorderValue"]
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

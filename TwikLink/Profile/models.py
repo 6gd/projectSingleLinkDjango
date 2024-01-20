@@ -72,6 +72,9 @@ class Item(models.Model):
     gradientoption = models.CharField(max_length=30,null=True, blank=True,choices=GradientOptions,default='to top')
     BackgroundBlur = models.IntegerField(blank=True, null=True,default=8)
     BackgroundBlurActive = models.BooleanField(default=True)
+    BorderValue = models.IntegerField(blank=True, null=True,default=2)
+    BorderColor = ColorField(default='#000000',null=True,blank=True,format='rgba')
+    Borderradius = models.IntegerField(blank=True, null=True,default=6)
     def __str__(self):
         return str(self.user)
     
@@ -79,7 +82,7 @@ class Item(models.Model):
 @receiver(post_save, sender=User)
 def create_profile(sender,created,instance, **kwargs):
     if created:
-        profile = Profile.objects.create(username=instance)
+        profile = Profile.objects.create(username=instance,Email=instance.email)
         url = "https://any-anime.p.rapidapi.com/v1/anime/png/1"
         headers = {
             "X-RapidAPI-Key": "5598a32debmshbb383db660e30f3p1dec56jsnce737093fa6e",
